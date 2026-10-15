@@ -1,0 +1,9 @@
+# Observed on the research server, 2026-10-15. Not a tested clean-install lockfile.
+torch==2.11.0+cu130
+torchvision==0.26.0+cu130
+numpy==2.2.6
+pillow==12.2.0
+tqdm==4.69.0
+transformers==5.14.1
+# Not installed in observed base environment: huggingface-hub
+safetensors==0.8.0

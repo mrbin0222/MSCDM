@@ -1,0 +1,242 @@
+{
+  "schema": "exp4.control_metric_protocol.vocab.v2",
+  "identity": {
+    "label_to_id": {
+      "mcf7 cell with elongated morphology and large area": 0,
+      "mcf7 cell with elongated morphology and medium area": 1,
+      "mcf7 cell with elongated morphology and small area": 2,
+      "mcf7 cell with oval morphology and large area": 3,
+      "mcf7 cell with oval morphology and medium area": 4,
+      "mcf7 cell with oval morphology and small area": 5,
+      "mcf7 cell with round morphology and large area": 6,
+      "mcf7 cell with round morphology and medium area": 7,
+      "mcf7 cell with round morphology and small area": 8,
+      "nucleus with elongated morphology and large area": 9,
+      "nucleus with elongated morphology and medium area": 10,
+      "nucleus with elongated morphology and small area": 11,
+      "nucleus with oval morphology and large area": 12,
+      "nucleus with oval morphology and medium area": 13,
+      "nucleus with oval morphology and small area": 14,
+      "nucleus with round morphology and large area": 15,
+      "nucleus with round morphology and medium area": 16,
+      "nucleus with round morphology and small area": 17,
+      "u2os cell with elongated morphology and large area": 18,
+      "u2os cell with elongated morphology and medium area": 19,
+      "u2os cell with elongated morphology and small area": 20,
+      "u2os cell with oval morphology and large area": 21,
+      "u2os cell with oval morphology and medium area": 22,
+      "u2os cell with oval morphology and small area": 23,
+      "u2os cell with round morphology and large area": 24,
+      "u2os cell with round morphology and medium area": 25,
+      "u2os cell with round morphology and small area": 26,
+      "whole cell with elongated morphology and large area": 27,
+      "whole cell with elongated morphology and medium area": 28,
+      "whole cell with elongated morphology and small area": 29,
+      "whole cell with oval morphology and large area": 30,
+      "whole cell with oval morphology and medium area": 31,
+      "whole cell with oval morphology and small area": 32,
+      "whole cell with round morphology and large area": 33,
+      "whole cell with round morphology and medium area": 34,
+      "whole cell with round morphology and small area": 35
+    },
+    "id_to_label": [
+      "mcf7 cell with elongated morphology and large area",
+      "mcf7 cell with elongated morphology and medium area",
+      "mcf7 cell with elongated morphology and small area",
+      "mcf7 cell with oval morphology and large area",
+      "mcf7 cell with oval morphology and medium area",
+      "mcf7 cell with oval morphology and small area",
+      "mcf7 cell with round morphology and large area",
+      "mcf7 cell with round morphology and medium area",
+      "mcf7 cell with round morphology and small area",
+      "nucleus with elongated morphology and large area",
+      "nucleus with elongated morphology and medium area",
+      "nucleus with elongated morphology and small area",
+      "nucleus with oval morphology and large area",
+      "nucleus with oval morphology and medium area",
+      "nucleus with oval morphology and small area",
+      "nucleus with round morphology and large area",
+      "nucleus with round morphology and medium area",
+      "nucleus with round morphology and small area",
+      "u2os cell with elongated morphology and large area",
+      "u2os cell with elongated morphology and medium area",
+      "u2os cell with elongated morphology and small area",
+      "u2os cell with oval morphology and large area",
+      "u2os cell with oval morphology and medium area",
+      "u2os cell with oval morphology and small area",
+      "u2os cell with round morphology and large area",
+      "u2os cell with round morphology and medium area",
+      "u2os cell with round morphology and small area",
+      "whole cell with elongated morphology and large area",
+      "whole cell with elongated morphology and medium area",
+      "whole cell with elongated morphology and small area",
+      "whole cell with oval morphology and large area",
+      "whole cell with oval morphology and medium area",
+      "whole cell with oval morphology and small area",
+      "whole cell with round morphology and large area",
+      "whole cell with round morphology and medium area",
+      "whole cell with round morphology and small area"
+    ]
+  },
+  "state": {
+    "bbbc021": {
+      "label_to_id": {
+        "actin disruptors": 0,
+        "aurora kinase inhibitors": 1,
+        "cholesterol-lowering": 2,
+        "dna damage": 3,
+        "dna replication": 4,
+        "eg5 inhibitors": 5,
+        "epithelial": 6,
+        "kinase inhibitors": 7,
+        "microtubule destabilizers": 8,
+        "microtubule stabilizers": 9,
+        "protein degradation": 10,
+        "protein synthesis": 11
+      },
+      "id_to_label": [
+        "actin disruptors",
+        "aurora kinase inhibitors",
+        "cholesterol-lowering",
+        "dna damage",
+        "dna replication",
+        "eg5 inhibitors",
+        "epithelial",
+        "kinase inhibitors",
+        "microtubule destabilizers",
+        "microtubule stabilizers",
+        "protein degradation",
+        "protein synthesis"
+      ]
+    },
+    "idr0033": {
+      "label_to_id": {
+        "apoptotic cell shape phenotype | decreased cell numbers | telophase phenotype": 0,
+        "asymmetric cellular component phenotype | decreased cell size phenotype | elongated cell phenotype | multinucleated cell phenotype": 1,
+        "asymmetric cellular component phenotype | decreased cell size phenotype | elongated cell phenotype | multinucleated cell phenotype | triangular shaped cell phenotype": 2,
+        "asymmetric cellular component phenotype | decreased cell size phenotype | increased cell size phenotype": 3,
+        "asymmetric cellular component phenotype | decreased cell size phenotype | increased cell size phenotype | multinucleated cell phenotype": 4,
+        "asymmetric cellular component phenotype | decreased cell size phenotype | increased cell size phenotype | multinucleated cell phenotype | telophase phenotype": 5,
+        "decreased cell numbers | elongated cell phenotype": 6,
+        "decreased cell numbers | increased cell size phenotype": 7,
+        "decreased cell numbers | multinucleated cell phenotype | telophase phenotype": 8,
+        "elongated cell phenotype": 9,
+        "elongated cell phenotype | increased cell size phenotype | mitochondrion phenotype": 10,
+        "elongated cell phenotype | increased cell size phenotype | triangular shaped cell phenotype": 11,
+        "elongated cell phenotype | mitochondrion phenotype | multinucleated cell phenotype": 12,
+        "elongated cell phenotype | triangular shaped cell phenotype": 13,
+        "increased cell size phenotype": 14,
+        "increased cell size phenotype | multinucleated cell phenotype": 15
+      },
+      "id_to_label": [
+        "apoptotic cell shape phenotype | decreased cell numbers | telophase phenotype",
+        "asymmetric cellular component phenotype | decreased cell size phenotype | elongated cell phenotype | multinucleated cell phenotype",
+        "asymmetric cellular component phenotype | decreased cell size phenotype | elongated cell phenotype | multinucleated cell phenotype | triangular shaped cell phenotype",
+        "asymmetric cellular component phenotype | decreased cell size phenotype | increased cell size phenotype",
+        "asymmetric cellular component phenotype | decreased cell size phenotype | increased cell size phenotype | multinucleated cell phenotype",
+        "asymmetric cellular component phenotype | decreased cell size phenotype | increased cell size phenotype | multinucleated cell phenotype | telophase phenotype",
+        "decreased cell numbers | elongated cell phenotype",
+        "decreased cell numbers | increased cell size phenotype",
+        "decreased cell numbers | multinucleated cell phenotype | telophase phenotype",
+        "elongated cell phenotype",
+        "elongated cell phenotype | increased cell size phenotype | mitochondrion phenotype",
+        "elongated cell phenotype | increased cell size phenotype | triangular shaped cell phenotype",
+        "elongated cell phenotype | mitochondrion phenotype | multinucleated cell phenotype",
+        "elongated cell phenotype | triangular shaped cell phenotype",
+        "increased cell size phenotype",
+        "increased cell size phenotype | multinucleated cell phenotype"
+      ]
+    },
+    "tissuenet_wholecell": {
+      "label_to_id": {
+        "breast": 0,
+        "colon": 1,
+        "epidermis": 2,
+        "esophagus": 3,
+        "lung": 4,
+        "lymph node": 5,
+        "lymph node metastasis": 6,
+        "pancreas": 7,
+        "spleen": 8,
+        "tonsil": 9
+      },
+      "id_to_label": [
+        "breast",
+        "colon",
+        "epidermis",
+        "esophagus",
+        "lung",
+        "lymph node",
+        "lymph node metastasis",
+        "pancreas",
+        "spleen",
+        "tonsil"
+      ]
+    },
+    "tissuenet_nuclear": {
+      "label_to_id": {
+        "breast": 0,
+        "colon": 1,
+        "epidermis": 2,
+        "esophagus": 3,
+        "lung": 4,
+        "lymph node": 5,
+        "lymph node metastasis": 6,
+        "pancreas": 7,
+        "spleen": 8,
+        "tonsil": 9
+      },
+      "id_to_label": [
+        "breast",
+        "colon",
+        "epidermis",
+        "esophagus",
+        "lung",
+        "lymph node",
+        "lymph node metastasis",
+        "pancreas",
+        "spleen",
+        "tonsil"
+      ]
+    },
+    "dynamicnuclearnet": {
+      "label_to_id": {
+        "3t3": 0,
+        "hek293": 1,
+        "hela": 2,
+        "pc-3": 3,
+        "raw264": 4,
+        "rpe": 5
+      },
+      "id_to_label": [
+        "3t3",
+        "hek293",
+        "hela",
+        "pc-3",
+        "raw264",
+        "rpe"
+      ]
+    }
+  },
+  "background": {
+    "label_to_id": {
+      "bbbc021": 0,
+      "dynamicnuclearnet": 1,
+      "idr0033": 2,
+      "tissuenet_nuclear": 3,
+      "tissuenet_wholecell": 4
+    },
+    "id_to_label": [
+      "bbbc021",
+      "dynamicnuclearnet",
+      "idr0033",
+      "tissuenet_nuclear",
+      "tissuenet_wholecell"
+    ]
+  },
+  "eligibility_thresholds": {
+    "min_train_per_class": 20,
+    "min_val_per_class": 2,
+    "min_test_per_class": 5
+  }
+}

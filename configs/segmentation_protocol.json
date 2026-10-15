@@ -1,0 +1,130 @@
+{
+  "schema": "exp4.p14.hela_cpsam_formal_pool.v3",
+  "datasets": [
+    "Fluo-N2DL-HeLa"
+  ],
+  "models": [
+    "cellpose_sam"
+  ],
+  "recommended_first_model": "cellpose_sam",
+  "directions": [
+    {
+      "train": "01",
+      "test": "02"
+    },
+    {
+      "train": "02",
+      "test": "01"
+    }
+  ],
+  "arms": [
+    "pretrained_only",
+    "real",
+    "synthetic",
+    "mixed"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "reference": "CTC official ST/SEG; silver reference, not manual Gold",
+  "training": {
+    "optimizer_updates": 2000,
+    "effective_batch": 8,
+    "patch_size": 256,
+    "condition_crop_size": 512,
+    "crops_per_training_frame": 4,
+    "mixed_real_fraction": 0.5,
+    "mixed_quota_per_update": {
+      "real": 4,
+      "synthetic": 4
+    },
+    "sample_with_replacement": true,
+    "selection": "fixed final update 2000; no target-sequence checkpoint selection",
+    "early_stopping": false,
+    "validation_for_selection": false,
+    "real_fraction_of_available_train_frames": 1.0,
+    "optimizer_reset_for_every_arm_and_seed": true,
+    "scheduler": "fixed cosine by optimizer update; no ReduceLROnPlateau",
+    "augmentation": "unchanged shared native 256 random crop, flips, 90-degree rotation; no label interpolation",
+    "real_normalization": "p14_full_ST_single_instance_p1p99_float_inverse_v3",
+    "synthetic_to_grayscale": "arithmetic RGB channel mean before same patch sampling",
+    "cellpose_sam": {
+      "micro_batch": 1,
+      "accumulation": 8,
+      "world_size": 1,
+      "optimizer": "AdamW",
+      "learning_rate": 1e-05,
+      "weight_decay": 0.1,
+      "required_version": ">=4.2,<4.3"
+    },
+    "downstream_geometry_scale": 1.0,
+    "selected_training_frames_per_direction": 92,
+    "mixed_pool_size": 368,
+    "mixed_pool_slots": {
+      "real": 184,
+      "synthetic": 184
+    }
+  },
+  "initialization": {
+    "cellpose_sam": {
+      "path_relative_to_exp5": "models/cpsam_v2/cpsam_v2",
+      "expected_bytes": 1233586851,
+      "expected_sha256": "0f1cc3f7ecdd8a037a57c6c48d9d8921391be4cbce3fa9f13c3e3a2e1253c667",
+      "provenance": "existing official generic cpsam_v2; original pretraining CTC exposure not established locally"
+    },
+    "rule": "same checkpoint SHA across all four arms, seeds and directions of a model; no target-sequence-trained checkpoint"
+  },
+  "synthesis": {
+    "candidate_generator": "Same-class single-instance foreground resynthesis with the shared backbone and target-gated modulation; inverse projection to native scenes",
+    "checkpoint_relative_to_exp4": "checkpoints/dual_target_modulation.pt",
+    "vae_checkpoint_relative_to_exp4": "checkpoints/text_generation.pt",
+    "steps": 25,
+    "seed": 20261009,
+    "condition_seed": 20261009,
+    "HeLa_candidate_source": "dynamicnuclearnet",
+    "HeLa_candidate_state_key": "dynamicnuclearnet::hela",
+    "label_rule": "native integer ST crop untouched; renderer-side auxiliary integer label is nearest binary support times target ID; normalized pair not used directly for downstream training",
+    "forbidden": [
+      "exp4 existing val/test generated pools",
+      "target sequence images/masks/backgrounds/conditions",
+      "target score based selection",
+      "connected components of binary union as instance labels"
+    ],
+    "selection": "uniform train-side frame/crop requests, fixed seeds; retain all generated requests including poor appearances",
+    "failure_policy": "fail visibly on unreadable/missing artifacts; no target-guided replacement or appearance filtering",
+    "construction": "single_instance_normalize_512_then_inverse_project_all_instances_to_native_scene",
+    "normalization": {
+      "renderer_size": 512,
+      "padding_ratio": 0.3,
+      "target_rule": "one full ST semantic instance ID from training parent, including parts outside the selected native scene crop",
+      "native_edge_rule": "clip square to parent and pad as existing isolate_instance; preserve labeled truncations; no Gold eligibility filter",
+      "image_forward_interpolation": "bicubic",
+      "binary_condition_interpolation": "nearest",
+      "image_inverse_interpolation": "bicubic",
+      "native_alpha_and_integer_label": "exact original parent L==ID; never inverse-resize labels",
+      "background": "existing same-parent unlabeled-pixel matched single-instance background; native final background from the same parent outside all ST support"
+    },
+    "reuse": "one generated image per unique training parent/instance ID reused across overlapping native scenes; no cross-sequence reuse",
+    "pure_synthetic_rule": "render every positive ST ID in each native scene; replacing only a focal object and leaving real labeled neighbors would be hybrid and is not this arm",
+    "formal_cache_recipe": "p14_full_ST_single_instance_p1p99_float_inverse_v3",
+    "full_scene_assembly_required": true,
+    "foreground_contrast_condition": "per-instance training-reference p1/p99 scalars explicitly used",
+    "cache_key_rule": "parent sequence/frame/ID + pixel hashes + geometry + seed + recipe + checkpoint hashes; excludes patch/arm/downstream seed"
+  },
+  "metrics": {
+    "AP50": "per-frame TP/(TP+FP+FN), cardinality-first one-to-one matches with instance IoU > 0.50; mean over full test frames",
+    "AP75": "same at IoU > 0.75",
+    "mAP_inst": "mean of per-frame instance AP over IoU thresholds 0.50:0.05:0.95, then frame macro mean; not COCO confidence-ranked AP",
+    "Dice_fg": "per-frame 2|P>0 intersect G>0|/(|P>0|+|G>0|), both-empty=1; frame macro mean",
+    "PQ": "secondary exp5 endpoint, IoU > 0.5; pooled TP/FP/FN and matched IoU",
+    "test_resolution": "native full FOV; fixed model postprocessing shared across four arms",
+    "direction_aggregation": "report each direction; arithmetic mean of directions within dataset; optional equal-weight dataset macro mean",
+    "seed_aggregation": "per-model/arm mean and sample SD across 42/43/44; paired same-seed arm differences; optional t95 interval df=2 conditional on fixed sequences",
+    "replication": "92 consecutive frames per sequence are subsamples; 2 sequences per dataset; training seeds are optimization replicates"
+  },
+  "runtime": {
+    "formal_data_root_relative_to_package": "staged_hela"
+  }
+}

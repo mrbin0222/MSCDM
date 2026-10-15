@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "mscdms"
+version = "0.1.0.dev0"
+description = "Structured conditioning and multiscale generation of cell microscopy images"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = ["torch>=2.0", "numpy>=1.24", "Pillow>=9", "tqdm>=4.65", "transformers>=4.40", "safetensors>=0.4"]
+[project.optional-dependencies]
+preprocessing = ["scipy", "scikit-image", "tifffile"]
+evaluation = ["torchvision", "scipy", "scikit-image", "tifffile", "torchmetrics", "torch-fidelity", "scikit-learn"]
+segmentation = ["cellpose>=4.2,<4.3", "tifffile", "scipy", "scikit-image"]
+[tool.setuptools.packages.find]
+where = ["src"]

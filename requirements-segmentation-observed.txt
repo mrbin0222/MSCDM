@@ -1,0 +1,8 @@
+# Observed in dedicated research segmentation environment; not a clean-install lock.
+cellpose==4.2.1.1
+torch==2.10.0+cu128
+numpy==2.2.6
+tifffile==2025.5.10
+scipy==1.15.3
+scikit-image==0.25.2
+opencv-python-headless==5.0.0.93

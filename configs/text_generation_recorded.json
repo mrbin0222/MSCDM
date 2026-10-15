@@ -1,0 +1,154 @@
+{
+  "model": {
+    "image_sizes": [
+      128,
+      256,
+      512
+    ],
+    "latent_channels": 4,
+    "latent_hw": [
+      [
+        16,
+        16
+      ],
+      [
+        32,
+        32
+      ],
+      [
+        64,
+        64
+      ]
+    ],
+    "latent_normalization": true,
+    "latent_mean_low": [
+      -0.009775553059577943,
+      -0.05481340613365173,
+      -0.05266946783065796,
+      -0.02914538377523422
+    ],
+    "latent_std_low": [
+      0.005059676638401107,
+      0.011793695463020502,
+      0.005078834864806598,
+      0.007233827382348296
+    ],
+    "latent_mean_mid": [
+      0.01812461813390255,
+      0.1114137544631958,
+      0.10951536664962769,
+      -0.014999967327713967
+    ],
+    "latent_std_mid": [
+      0.012325066366822405,
+      0.011946182850638445,
+      0.009913322480600416,
+      0.038612458068636786
+    ],
+    "latent_mean_high": [
+      0.0007869063705205917,
+      0.02721898600310087,
+      0.022315687957406044,
+      0.007154647596180439
+    ],
+    "latent_std_high": [
+      0.031204746897776317,
+      0.019660960347902812,
+      0.008747837790908191,
+      0.017549137313191115
+    ],
+    "text_dim": 256,
+    "max_text_len": 64,
+    "text_pretrained_name": "models/clip-vit-base-patch32",
+    "text_local_files_only": true,
+    "freeze_clip_backbone": true,
+    "base_channels": [
+      192,
+      224,
+      256
+    ],
+    "channel_mult": [
+      1,
+      2,
+      4,
+      4
+    ],
+    "num_res_blocks": 2,
+    "attention_resolutions": [
+      32,
+      16,
+      8
+    ],
+    "num_heads": 8,
+    "unet_context_dim": 256,
+    "dropout": 0.0,
+    "use_reversible": true,
+    "reversible_save_memory": true,
+    "vae_base_ch": 128,
+    "vae_ch_mult": [
+      1,
+      2,
+      4,
+      4
+    ],
+    "vae_kl_weight": 1e-06,
+    "vae_gradient_checkpointing": true,
+    "freeze_vae": true,
+    "frozen_vae_use_mean": true,
+    "num_train_timesteps": 1000,
+    "beta_schedule": "linear",
+    "beta_start": 0.0001,
+    "beta_end": 0.02,
+    "prediction_type": "v",
+    "num_inference_steps": 50,
+    "cfg_scale": 7.5,
+    "loss_w_low": 0.25,
+    "loss_w_mid": 0.5,
+    "loss_w_high": 1.0,
+    "contrastive_weight": 0.1,
+    "contrastive_tau": 0.07,
+    "personalization_token_dim": 256,
+    "lambda_personalization": 1.0,
+    "lambda_prior_preservation": 0.8
+  },
+  "training": {
+    "data_dir": "data/exp4_cells_v2_core_balanced_isolated",
+    "manifest_name": "manifest_hybrid.jsonl",
+    "demo": false,
+    "tiny": false,
+    "epochs": 200,
+    "batch_size": 32,
+    "lr": 5e-05,
+    "wd": 0.01,
+    "seed": 42,
+    "num_workers": 8,
+    "precision": "bf16",
+    "clip_model_dir": "models/clip-vit-base-patch32",
+    "no_vae_gradient_checkpointing": false,
+    "normalize": "percentile",
+    "val_every": 1,
+    "max_train_batches": 0,
+    "max_val_batches": 0,
+    "warmup_epochs": 5,
+    "grad_clip_norm": 1.0,
+    "loss_spike_warn_factor": 0.0,
+    "cond_drop_prob": 0.1,
+    "prediction_type": "v",
+    "sample_every": 10,
+    "num_val_samples": 5,
+    "val_vis_seed": 20260726,
+    "sample_cfg_scale": 1.0,
+    "sample_num_steps": 50,
+    "save": "checkpoints/mscdm.pt",
+    "output_dir": "runs/mscdm_h200_v4_isolated_full",
+    "best_path": null,
+    "resume": null,
+    "vae_init_checkpoint": "runs/mscdm_h200_v3_vpred_full/checkpoint_best.pt",
+    "latent_calibration": "outputs/mscdm_h200_v4_isolated_latent_calibration.json",
+    "freeze_vae": true,
+    "train_limit_per_source": 0,
+    "train_ckpt_every": 5,
+    "train_ckpt_max_keep": 3
+  },
+  "world_size": 8
+}

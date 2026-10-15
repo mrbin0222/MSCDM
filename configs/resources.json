@@ -1,0 +1,13 @@
+{
+  "clip_text": "models/clip-vit-base-patch32",
+  "clip_evaluation": "models/clip-vit-large-patch14",
+  "dino": "models/dinov2-large",
+  "text_model": "checkpoints/text_generation.pt",
+  "foreground_model": "checkpoints/foreground.pt",
+  "teacher_model": "checkpoints/distribution_teacher.pt",
+  "final_modulation_model": "checkpoints/dual_target_modulation.pt",
+  "foreground_evaluator": "checkpoints/foreground_evaluator.pt",
+  "teacher_classifier": "checkpoints/teacher_classifier.pt",
+  "cellpose_sam": "models/cellpose_sam",
+  "fid_inception": "models/weights-inception-2015-12-05-6726825d.pth"
+}

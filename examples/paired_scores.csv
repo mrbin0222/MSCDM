@@ -1,0 +1,9 @@
+direction,seed,arm,value
+01_to_02,1,real,0.50
+01_to_02,1,mixed,0.52
+02_to_01,1,real,0.60
+02_to_01,1,mixed,0.61
+01_to_02,2,real,0.51
+01_to_02,2,mixed,0.52
+02_to_01,2,real,0.59
+02_to_01,2,mixed,0.60

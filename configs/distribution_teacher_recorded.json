@@ -1,0 +1,79 @@
+{
+  "model_config": {
+    "num_sources": 2,
+    "num_states": 20,
+    "latent_channels": 4,
+    "condition_dim": 256,
+    "base_channels": 64,
+    "input_resolution": 64,
+    "channel_mult": [
+      1,
+      2,
+      4,
+      4
+    ],
+    "num_res_blocks": 1,
+    "num_heads": 4,
+    "num_train_timesteps": 1000,
+    "prediction_type": "v"
+  },
+  "source_to_id": {
+    "bbbc021": 0,
+    "dynamicnuclearnet": 1
+  },
+  "state_to_id": {
+    "bbbc021::__unknown__": 0,
+    "bbbc021::actin disruptors": 1,
+    "bbbc021::aurora kinase inhibitors": 2,
+    "bbbc021::cholesterol-lowering": 3,
+    "bbbc021::dmso": 4,
+    "bbbc021::dna damage": 5,
+    "bbbc021::dna replication": 6,
+    "bbbc021::eg5 inhibitors": 7,
+    "bbbc021::epithelial": 8,
+    "bbbc021::kinase inhibitors": 9,
+    "bbbc021::microtubule destabilizers": 10,
+    "bbbc021::microtubule stabilizers": 11,
+    "bbbc021::protein degradation": 12,
+    "bbbc021::protein synthesis": 13,
+    "dynamicnuclearnet::3t3": 14,
+    "dynamicnuclearnet::hek293": 15,
+    "dynamicnuclearnet::hela": 16,
+    "dynamicnuclearnet::pc-3": 17,
+    "dynamicnuclearnet::raw264": 18,
+    "dynamicnuclearnet::rpe": 19
+  },
+  "latent_calibration": {
+    "enabled": true,
+    "mean": [
+      0.0007869063705205917,
+      0.02721898600310087,
+      0.022315687957406044,
+      0.007154647596180439
+    ],
+    "std": [
+      0.031204746897776317,
+      0.019660960347902812,
+      0.008747837790908191,
+      0.017549137313191115
+    ],
+    "latent_channels": 4,
+    "vae_base_ch": 128,
+    "vae_ch_mult": [
+      1,
+      2,
+      4,
+      4
+    ],
+    "num_heads": 8
+  },
+  "seed": 20261001,
+  "population_size": 2,
+  "state_weight": 0.05,
+  "timestep_range": [
+    0,
+    249
+  ],
+  "train_records": 5000,
+  "val_records": 500
+}

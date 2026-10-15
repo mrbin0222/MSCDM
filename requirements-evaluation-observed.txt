@@ -1,0 +1,6 @@
+# Observed on the research server, 2026-10-15. Not a tested clean-install lockfile.
+scipy==1.15.3
+scikit-image==0.25.2
+# Not installed in observed base environment: scikit-learn
+torchmetrics==1.9.0
+# Not installed in observed base environment: torch-fidelity

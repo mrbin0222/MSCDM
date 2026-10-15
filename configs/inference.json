@@ -1,0 +1,17 @@
+{
+  "steps": 25,
+  "conditional_cfg_scale": 1.0,
+  "repeats_per_condition": 16,
+  "routing_training_seeds": [
+    42,
+    43,
+    44
+  ],
+  "segmentation_training_seeds": [
+    42,
+    43,
+    44
+  ],
+  "foreground_target_gate_class": 5,
+  "target_response_class": 0
+}
